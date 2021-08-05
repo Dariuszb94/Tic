@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import ThemeContext from "../ThemeContext";
 
 function Message() {
-  return <section>Player 1 turn</section>;
+  const turn = useContext(ThemeContext)[0];
+  return <section>Player {turn}turn</section>;
 }
 
 export default Message;

@@ -5,10 +5,15 @@ import { useState, useContext, useEffect } from "react";
 import ThemeContext from "./Components/ThemeContext";
 function App() {
   const [player, playerSet] = useState(1);
-  const turn = useState(1);
-
+  const turnFunction = useState(1);
+  const turn = turnFunction[0];
+  useEffect(() => {
+    console.log(turn);
+    if (turn % 2 === 0) playerSet(2);
+    else playerSet(1);
+  }, [turnFunction]);
   return (
-    <ThemeContext.Provider value={turn}>
+    <ThemeContext.Provider value={turnFunction}>
       <div className="container">
         <Message player={player} />
         <Grid />

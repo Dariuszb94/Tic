@@ -8,15 +8,15 @@ function App() {
   const turnFunction = useState(1);
   const turn = turnFunction[0];
   useEffect(() => {
-    console.log(turn);
     if (turn % 2 === 0) playerSet(2);
     else playerSet(1);
   }, [turnFunction]);
+
   return (
     <ThemeContext.Provider value={turnFunction}>
       <div className="container">
         <Message player={player} />
-        <Grid />
+        <Grid player={player} />
       </div>
     </ThemeContext.Provider>
   );

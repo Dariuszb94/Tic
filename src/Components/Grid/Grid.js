@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Cell from "./GridComponents/Cell";
 import "./Grid.scss";
-function Grid() {
+function Grid({ player }) {
   return (
     <section className="grid">
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
-      <Cell />
+      <Cell player={player} />
+      <Cell player={player} />
+      <Cell player={player} />
+      <Cell player={player} />
+      <Cell player={player} />
+      <Cell player={player} />
+      <Cell player={player} />
+      <Cell player={player} />
+      <Cell player={player} />
     </section>
   );
 }

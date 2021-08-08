@@ -1,16 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ThemeContext from "../../ThemeContext";
 import AppTheme from "../../../Colors";
 
-function Cell({ player }) {
+function Cell({ player, cellFillSet }) {
   const [filled, filledSet] = useState(null);
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
   const [turn, turnSet] = useContext(ThemeContext);
-  const fill = () => {
+  const fill = async () => {
     decidePlayer();
     turnSet((prev) => prev + 1);
   };
+  useEffect(() => {
+    cellFillSet(filled);
+    console.log(filled);
+  }, [filled]);
   const decidePlayer = () => {
     switch (player) {
       case 1:

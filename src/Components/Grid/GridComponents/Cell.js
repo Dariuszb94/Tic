@@ -13,7 +13,6 @@ function Cell({ player, cellFillSet }) {
   };
   useEffect(() => {
     cellFillSet(filled);
-    console.log(filled);
   }, [filled]);
   const decidePlayer = () => {
     switch (player) {

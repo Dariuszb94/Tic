@@ -20,7 +20,7 @@ function Grid({ player }) {
       cell2Fill != null &&
       cell3Fill != null
     )
-      console.log(cell1Fill);
+      console.log(cell2Fill);
   }, [
     cell1Fill,
     cell2Fill,

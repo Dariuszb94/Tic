@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import ThemeContext from "../../ThemeContext";
 import AppTheme from "../../../Colors";
 
-function Cell({ player, cellFillSet }) {
+function Cell({ player, boardSet, board, index }) {
   const [filled, filledSet] = useState(null);
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
@@ -12,8 +12,13 @@ function Cell({ player, cellFillSet }) {
     turnSet((prev) => prev + 1);
   };
   useEffect(() => {
-    cellFillSet([filled]);
+    updateBoard();
   }, [filled]);
+  const updateBoard = () => {
+    let boardUpdated = board;
+    boardUpdated[index] = filled;
+    boardSet(boardUpdated);
+  };
   const decidePlayer = () => {
     switch (player) {
       case 1:

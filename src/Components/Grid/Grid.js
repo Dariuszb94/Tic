@@ -3,7 +3,17 @@ import Cell from "./GridComponents/Cell";
 
 import "./Grid.scss";
 function Grid({ player }) {
-  const [board, boardSet] = useState([11, 2, 3]);
+  const [board, boardSet] = useState([
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+  ]);
   const [cellsFill, cellsFillSet] = useState([
     [0, 1, 2],
     [3, 4, 5],
@@ -15,12 +25,21 @@ function Grid({ player }) {
     [2, 5, 8],
   ]);
 
+  useEffect(() => {
+    console.log(board);
+  }, [board]);
   return (
     <section className="grid">
       {board &&
         board.map((el, index) => {
-          console.log(el);
-          return <Cell player={player} cellFillSet={boardSet}></Cell>;
+          return (
+            <Cell
+              player={player}
+              index={index}
+              boardSet={boardSet}
+              board={board}
+            ></Cell>
+          );
         })}
     </section>
   );

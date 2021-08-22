@@ -24,10 +24,22 @@ function Grid({ player }) {
     [1, 4, 7],
     [2, 5, 8],
   ]);
-
   useEffect(() => {
-    console.log(board);
+    XWin();
   }, [board]);
+  const XWin = () => {
+    let boardMapped = [];
+    board.forEach((value, i) => {
+      if (value === "X") boardMapped.push(i);
+    });
+    checkIfWinner(boardMapped);
+  };
+  const checkIfWinner = (boardMapped) => {
+    const is = cellsFill.some((x) => {
+      return x.join() == boardMapped.join();
+    });
+    console.log(is);
+  };
   return (
     <section className="grid">
       {board &&

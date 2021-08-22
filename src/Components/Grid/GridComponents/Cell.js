@@ -15,7 +15,7 @@ function Cell({ player, boardSet, board, index }) {
     updateBoard();
   }, [filled]);
   const updateBoard = () => {
-    let boardUpdated = board;
+    let boardUpdated = [...board];
     boardUpdated[index] = filled;
     boardSet(boardUpdated);
   };

@@ -4,12 +4,12 @@ import Grid from "./Components/Grid/Grid";
 import { useState, useContext, useEffect } from "react";
 import ThemeContext from "./Components/ThemeContext";
 function App() {
-  const [player, playerSet] = useState(1);
+  const [player, playerSet] = useState("X");
   const turnFunction = useState(1);
   const turn = turnFunction[0];
   useEffect(() => {
-    if (turn % 2 === 0) playerSet(2);
-    else playerSet(1);
+    if (turn % 2 === 0) playerSet("Y");
+    else playerSet("X");
   }, [turnFunction]);
 
   return (

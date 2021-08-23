@@ -14,6 +14,7 @@ function Grid({ player }) {
     null,
     null,
   ]);
+  const [winner, winnerSet] = useState(null);
   const [cellsFill, cellsFillSet] = useState([
     [0, 1, 2],
     [3, 4, 5],
@@ -25,12 +26,13 @@ function Grid({ player }) {
     [2, 5, 8],
   ]);
   useEffect(() => {
-    XWin();
+    mapBoard("X");
+    mapBoard("Y");
   }, [board]);
-  const XWin = () => {
+  const mapBoard = (xOrY) => {
     let boardMapped = [];
     board.forEach((value, i) => {
-      if (value === "X") boardMapped.push(i);
+      if (value === xOrY) boardMapped.push(i);
     });
     checkIfWinner(boardMapped);
   };
@@ -38,12 +40,16 @@ function Grid({ player }) {
     const is = cellsFill.some((x) => {
       return x.join() == boardMapped.join();
     });
-    console.log(is);
+    cellsFill.forEach((value, i) => {
+      if (value.join() === boardMapped.join()) {
+        winnerSet(board[boardMapped[0]]);
+      }
+    });
   };
   return (
     <section className="grid">
       {board &&
-        board.map((el, index) => {
+        board.map((_, index) => {
           return (
             <Cell
               player={player}

@@ -20,6 +20,7 @@ function Cell({ player, boardSet, board, index }) {
     boardSet(boardUpdated);
   };
   const decidePlayer = () => {
+    if (filled != null) return;
     switch (player) {
       case 1:
         filledSet("X");

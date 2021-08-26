@@ -8,7 +8,7 @@ function App() {
   const turnFunction = useState(1);
   const turn = turnFunction[0];
   useEffect(() => {
-    if (turn % 2 === 0) playerSet("Y");
+    if (turn % 2 === 0) playerSet("O");
     else playerSet("X");
   }, [turnFunction]);
 

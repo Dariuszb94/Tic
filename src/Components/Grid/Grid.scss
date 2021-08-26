@@ -12,3 +12,12 @@
   align-items: center;
   cursor: pointer;
 }
+.cell--filled {
+  background-color: rgb(233, 219, 219);
+  min-height: 40px;
+  max-height: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+}

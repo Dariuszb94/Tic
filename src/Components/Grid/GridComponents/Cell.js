@@ -8,6 +8,7 @@ function Cell({ player, boardSet, board, index }) {
   const currentTheme = AppTheme[theme];
   const [turn, turnSet] = useContext(ThemeContext);
   const fill = async () => {
+    if (filled != null) return;
     decidePlayer();
     turnSet((prev) => prev + 1);
   };
@@ -20,12 +21,11 @@ function Cell({ player, boardSet, board, index }) {
     boardSet(boardUpdated);
   };
   const decidePlayer = () => {
-    if (filled != null) return;
     switch (player) {
-      case 1:
+      case "X":
         filledSet("X");
         break;
-      case 2:
+      case "O":
         filledSet("O");
         break;
       default:
@@ -33,7 +33,7 @@ function Cell({ player, boardSet, board, index }) {
     }
   };
   return (
-    <div className="cell" onClick={fill}>
+    <div className={`cell ${filled != null ? "--filled" : ""}`} onClick={fill}>
       {filled}
     </div>
   );

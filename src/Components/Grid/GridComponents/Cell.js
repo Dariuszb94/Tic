@@ -29,7 +29,7 @@ function Cell({ player, boardSet, board, index }) {
         filledSet("O");
         break;
       default:
-        console.log(`error player`);
+      //console.log(`error player`);
     }
   };
   return (

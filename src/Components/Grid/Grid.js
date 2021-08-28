@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cell from "./GridComponents/Cell";
+import Winner from "./GridComponents/Winner";
+
 import "./Grid.scss";
 function Grid({ player }) {
   const [board, boardSet] = useState([
@@ -26,7 +28,7 @@ function Grid({ player }) {
   ]);
   useEffect(() => {
     mapBoard("X");
-    mapBoard("Y");
+    mapBoard("O");
   }, [board]);
   const mapBoard = (xOrY) => {
     let boardMapped = [];
@@ -47,17 +49,21 @@ function Grid({ player }) {
   };
   return (
     <section className="grid">
-      {board &&
-        board.map((_, index) => {
-          return (
-            <Cell
-              player={player}
-              index={index}
-              boardSet={boardSet}
-              board={board}
-            ></Cell>
-          );
-        })}
+      <div className="grid__inner">
+        {board &&
+          board.map((_, index) => {
+            return (
+              <Cell
+                player={player}
+                index={index}
+                boardSet={boardSet}
+                board={board}
+                winner={winner}
+              ></Cell>
+            );
+          })}
+      </div>
+      <Winner winner={winner} />
     </section>
   );
 }

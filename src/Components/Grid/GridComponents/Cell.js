@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import ThemeContext from "../../ThemeContext";
 import AppTheme from "../../../Colors";
 
-function Cell({ player, boardSet, board, index }) {
+function Cell({ player, boardSet, board, index, winner }) {
   const [filled, filledSet] = useState(null);
   const theme = useContext(ThemeContext)[0];
   const currentTheme = AppTheme[theme];
@@ -14,6 +14,9 @@ function Cell({ player, boardSet, board, index }) {
   };
   useEffect(() => {
     updateBoard();
+  }, [filled]);
+  useEffect(() => {
+    console.log(winner);
   }, [filled]);
   const updateBoard = () => {
     let boardUpdated = [...board];
@@ -29,11 +32,11 @@ function Cell({ player, boardSet, board, index }) {
         filledSet("O");
         break;
       default:
-      //console.log(`error player`);
+        console.log(`error player`);
     }
   };
   return (
-    <div className={`cell ${filled != null ? "--filled" : ""}`} onClick={fill}>
+    <div className={`cell${winner || filled ? "--filled" : ""}`} onClick={fill}>
       {filled}
     </div>
   );

@@ -15,9 +15,7 @@ function Cell({ player, boardSet, board, index, winner }) {
   useEffect(() => {
     updateBoard();
   }, [filled]);
-  useEffect(() => {
-    console.log(winner);
-  }, [filled]);
+  useEffect(() => {}, [filled]);
   const updateBoard = () => {
     let boardUpdated = [...board];
     boardUpdated[index] = filled;

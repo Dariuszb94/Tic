@@ -15,6 +15,7 @@ function Grid({ player }) {
     null,
     null,
   ]);
+  const [history, historySet] = useState([]);
   const [winner, winnerSet] = useState(null);
   const [cellsFill, cellsFillSet] = useState([
     [0, 1, 2],
@@ -37,6 +38,10 @@ function Grid({ player }) {
     });
     checkIfWinner(boardMapped);
   };
+  useEffect(() => {
+    if (!JSON.stringify(history).includes(JSON.stringify(board)))
+      historySet((prev) => [...prev, board]);
+  }, [board]);
   const checkIfWinner = (boardMapped) => {
     const is = cellsFill.some((x) => {
       return x.join() == boardMapped.join();

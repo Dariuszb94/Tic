@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Cell from "./GridComponents/Cell";
 import Winner from "./GridComponents/Winner";
-
 import "./Grid.scss";
 function Grid({ player }) {
   const [board, boardSet] = useState([

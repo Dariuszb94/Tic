@@ -67,7 +67,7 @@ function Grid({ player }) {
             );
           })}
       </div>
-      <Winner winner={winner} />
+      {winner && <Winner winner={winner} />}
     </section>
   );
 }

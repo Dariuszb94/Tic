@@ -51,6 +51,12 @@ function Grid({ player }) {
       }
     });
   };
+  const rewindMove = () => {
+    //const historyCopy = [...history];
+
+    boardSet([null, null, null, null, null, null, null, null, null]);
+  };
+
   return (
     <section className="grid">
       <div className="grid__inner">
@@ -67,6 +73,9 @@ function Grid({ player }) {
             );
           })}
       </div>
+      <button type="button" onClick={rewindMove}>
+        Back
+      </button>
       {winner && <Winner winner={winner} />}
     </section>
   );

@@ -52,8 +52,7 @@ function Grid({ player }) {
     });
   };
   const rewindMove = () => {
-    //const historyCopy = [...history];
-
+    const historyCopy = [...history];
     boardSet([null, null, null, null, null, null, null, null, null]);
   };
 

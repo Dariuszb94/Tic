@@ -1,0 +1,2 @@
+.container{max-width:800px;margin:0 auto}.grid__inner{display:grid;grid-template-columns:repeat(3,1fr);grid-gap:20px}.cell{cursor:pointer}.cell,.cell--filled{background-color:#e9dbdb;min-height:40px;max-height:1200px;display:flex;justify-content:center;align-items:center}.cell--filled{cursor:default;pointer-events:none}
+/*# sourceMappingURL=main.ce9b29ba.chunk.css.map */

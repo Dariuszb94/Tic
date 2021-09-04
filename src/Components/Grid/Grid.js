@@ -53,7 +53,10 @@ function Grid({ player }) {
   };
   const rewindMove = () => {
     const historyCopy = [...history];
-    boardSet([null, null, null, null, null, null, null, null, null]);
+    boardSet(historyCopy[historyCopy.length - 2]);
+    historyCopy.pop();
+    const historyCopyPoped = historyCopy.slice(0, -1);
+    historySet(historyCopyPoped);
   };
 
   return (

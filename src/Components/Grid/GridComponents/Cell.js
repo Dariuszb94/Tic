@@ -21,6 +21,9 @@ function Cell({ player, boardSet, board, index, winner }) {
     boardUpdated[index] = filled;
     boardSet(boardUpdated);
   };
+  useEffect(() => {
+    filledSet(board[index]);
+  }, [board]);
   const decidePlayer = () => {
     switch (player) {
       case "X":

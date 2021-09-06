@@ -65,7 +65,7 @@ function Grid({ player }) {
     historySet(historyCopyPoped);
   };
   useEffect(() => {
-    db.friends.clear();
+    //db.friends.clear();
     db.friends.put({ history: history.join() });
   }, [history]);
   return (

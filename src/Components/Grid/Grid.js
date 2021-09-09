@@ -3,7 +3,6 @@ import Cell from "./GridComponents/Cell";
 import Winner from "./GridComponents/Winner";
 import "./Grid.scss";
 import Dexie from "dexie";
-import { useLiveQuery } from "dexie-react-hooks";
 function Grid({ player }) {
   const [board, boardSet] = useState([
     null,

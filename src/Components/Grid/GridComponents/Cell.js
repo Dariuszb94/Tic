@@ -5,7 +5,7 @@ import AppTheme from "../../../Colors";
 function Cell({ player, boardSet, board, index, winner }) {
   const [filled, filledSet] = useState(null);
   const theme = useContext(ThemeContext)[0];
-  const currentTheme = AppTheme[theme];
+  //const currentTheme = AppTheme[theme];
   const [turn, turnSet] = useContext(ThemeContext);
   const fill = async () => {
     if (filled != null) return;
